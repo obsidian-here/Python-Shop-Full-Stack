@@ -1,0 +1,41 @@
+To execute in a new terminal in the folder:
+	command to begin project - 'django-admin startproject pyshop .'
+	here, '.' signifies that the project is to be begun in the very folder
+	'django-admin' is a command-line utility
+	'startproject' is the argument
+
+	
+To run our development webserver:
+	command - 'python manage.py runserver'
+	with 'python' interpreter
+	we are running the program 'manage.py' 
+	and passing the argument 'runserver'
+
+To create a new application in this django project:
+	command - 'python manage.py startapp products'
+	NOTE: such an app is like a python package that can be used across django frameworks
+	here, same as above, but the argument is 'startapp'
+	and the name of the app is 'products'
+
+To automatically create a table in the db.sqlite3 file (using the class in models.py):
+	command - 'python manage.py makemigrations'
+	NOTE: To run this and not get 'No changes detected', do these steps:
+	#1) Go to main folder (pyshop here)> settings.py> INSTALLED_APPS variable (a list of strings)
+	#2) There, add the app from the products app that we have created in the format:
+		'application_name.package_name.ModuleName', which, here, is,
+		'products.apps.ProductsConfig'
+	A successful execution gets us the prompt:
+	- Migrations for 'products':
+  	products\migrations\0001_initial.py
+    - Create model Product
+
+To run pending migrations (run everytime you create a new model, or modify an existing one):
+	command - 'python manage.py migrate'
+	Django will look at our apps and run all pending migrations.
+
+To create a superuser in django admin (to access the admin page):
+	command - 'python manage.py createsuperuser'
+	what I entered:
+		username: admin
+		Email: aj007ij@gmail.com
+		password: admin
